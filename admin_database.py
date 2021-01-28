@@ -26,8 +26,9 @@ class database:
         except:
             print("PRIMARY KEY EXISTS")
     # def delete_user():
-
-    con = sql_connection()
-    sql_table(con)
-    entities = (22, 'Andrew', 800, 'IT', 'Tech', '2018-02-06')
-    add_user(con,entities)
+    def __init__(self) -> None:
+        con = database.sql_connection()
+        database.sql_table(con)
+        entities = (22, 'Andrew', 800, 'IT', 'Tech', '2018-02-06')
+        database.add_user(con,entities)
+        print("A")
