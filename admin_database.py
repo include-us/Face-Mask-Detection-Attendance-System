@@ -19,12 +19,15 @@ class database:
         except:
             pass
     def add_user(con, entities):
-        cursorObj = con.cursor()
-        cursorObj.execute('INSERT INTO users(id, name, year, department, position, hireDate) VALUES(?, ?, ?, ?, ?, ?)', entities)
-        con.commit()
+        try:
+            cursorObj = con.cursor()
+            cursorObj.execute('INSERT INTO users(id, name, year, department, position, hireDate) VALUES(?, ?, ?, ?, ?, ?)', entities)
+            con.commit()
+        except:
+            print("PRIMARY KEY EXISTS")
     # def delete_user():
 
     con = sql_connection()
     sql_table(con)
-    entities = (1, 'Andrew', 800, 'IT', 'Tech', '2018-02-06')
+    entities = (22, 'Andrew', 800, 'IT', 'Tech', '2018-02-06')
     add_user(con,entities)
