@@ -39,6 +39,7 @@ class database:
             cursor_obj=con.cursor()
             cursor_obj.execute("DELETE FROM users WHERE id= ?",str(delete_id))
             print("DELETED")
+            con.commit()
         except:
             print("CANT DELETE USER")
     def __init__(self) -> None:
