@@ -37,7 +37,7 @@ class database:
     def delete_user(con,delete_id):
         try:
             cursor_obj=con.cursor()
-            cursor_obj.execute("DELETE FROM users WHERE id= 2")
+            cursor_obj.execute("DELETE FROM users WHERE id= ?",str(delete_id))
             print("DELETED")
         except:
             print("CANT DELETE USER")
