@@ -28,16 +28,18 @@ class database:
     def search_user(con,search_id):
         try:
             cursor_obj=con.cursor()
-            cursor_obj.execute("SELECT name,year FROM users WHERE id= 2")
+            cursor_obj.execute("SELECT name,year FROM users WHERE id= ?",str(search_id))
             rows=cursor_obj.fetchall()
             for i in rows:
                 print(rows)
         except:
             print("Does not exist")
+    def delete_user(con,delete_id):
+        try:
+            cursor_obj=con.cursor()
+            cursor_obj.execute("DELETE FROM users WHERE id= 2")
+            print("DELETED")
+        except:
+            print("CANT DELETE USER")
     def __init__(self) -> None:
-        con = database.sql_connection()
-        database.sql_table(con)
-        entities = (2, 'Andrew', 800, 'IT', 'Tech', '2018-02-06')
-        database.add_user(con,entities)
-        database.search_user(con,2)
-        print("A")
+        con = database.sql_connection()      
