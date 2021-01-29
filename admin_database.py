@@ -12,23 +12,32 @@ class database:
 
     #-----------------TESTING ONLY PHASE----------------
     def sql_table(con):
-        cursorObj = con.cursor()
+        cursor_obj = con.cursor()
         try:
-            cursorObj.execute("CREATE TABLE users(id integer PRIMARY KEY, name text, year real, department text, position text, hireDate text)")
+            cursor_obj.execute("CREATE TABLE users(id integer PRIMARY KEY, name text, year real, department text, position text, hireDate text)")
             con.commit()
         except:
-            pass
+            print("TABLE EXISTS")
     def add_user(con, entities):
         try:
-            cursorObj = con.cursor()
-            cursorObj.execute('INSERT INTO users(id, name, year, department, position, hireDate) VALUES(?, ?, ?, ?, ?, ?)', entities)
+            cursor_obj = con.cursor()
+            cursor_obj.execute('INSERT INTO users(id, name, year, department, position, hireDate) VALUES(?, ?, ?, ?, ?, ?)', entities)
             con.commit()
         except:
             print("PRIMARY KEY EXISTS")
-    # def delete_user():
+    def search_user(con,search_id):
+        try:
+            cursor_obj=con.cursor()
+            cursor_obj.execute("SELECT name,year FROM users WHERE id= 2")
+            rows=cursor_obj.fetchall()
+            for i in rows:
+                print(rows)
+        except:
+            print("Does not exist")
     def __init__(self) -> None:
         con = database.sql_connection()
         database.sql_table(con)
-        entities = (22, 'Andrew', 800, 'IT', 'Tech', '2018-02-06')
+        entities = (2, 'Andrew', 800, 'IT', 'Tech', '2018-02-06')
         database.add_user(con,entities)
+        database.search_user(con,2)
         print("A")
