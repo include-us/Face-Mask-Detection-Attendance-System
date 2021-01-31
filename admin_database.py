@@ -4,6 +4,7 @@ from sqlite3 import Error
 import datetime
 import tkinter as tk
 
+
 class database:
     def sql_connection():
         try:
@@ -51,5 +52,5 @@ class database:
         except:
             print("CANT DELETE USER")
 
-    def __init__(self) -> None:
+    def __init__(self):
         con = database.sql_connection()
