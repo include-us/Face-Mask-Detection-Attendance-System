@@ -1,5 +1,5 @@
 # Attendance-System
-It is a basic attendance system based on GUI and uses SQLITE database  
+It is a basic attendance system based on GUI and marks attendance only if the mask is detected and uses SQLITE database. It is under development.  
 <br>
 
 ### CONTRIBUTERS   
