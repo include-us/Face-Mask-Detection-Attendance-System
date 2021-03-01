@@ -13,6 +13,7 @@ class administrator:
         entered_username = self.entry_username.get()
         if entered_password == admin_password and admin_username == entered_username:
             messagebox.showinfo("SUCCESS","LOGGING IN SUCCESSFUL")
+            self.window.destroy()
         else:
             messagebox.showerror("ERROR","CHECK CREDENTIALS")
 
@@ -58,5 +59,3 @@ class administrator:
         self.window.mainloop()
 
 
-obj = administrator()
-obj.admin_panel()
