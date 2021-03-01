@@ -19,3 +19,6 @@ Holds all functions to detect mask
 
 3. ``main.py`` 
 Is the driver code
+
+4. ``admin_panel.py``
+Is the main tkinter window
