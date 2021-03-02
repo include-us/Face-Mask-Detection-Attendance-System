@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import Entry, messagebox
+from windows.admin_panel import admin_panel
 # ---------------ADMIN CREDENTIALS----------------
 global admin_password
 global admin_username
@@ -14,6 +15,8 @@ class administrator:
         if entered_password == admin_password and admin_username == entered_username:
             messagebox.showinfo("SUCCESS","LOGGING IN SUCCESSFUL")
             self.window.destroy()
+            object2=admin_panel()
+            object2.admin()
         else:
             messagebox.showerror("ERROR","CHECK CREDENTIALS")
 

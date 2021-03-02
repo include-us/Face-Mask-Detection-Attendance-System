@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
-from admin_login import administrator
+from windows.admin_login import administrator
 
 
 class opening_panel(object):
@@ -32,7 +32,3 @@ class opening_panel(object):
         self.btn_admin.grid(row=1, column=1)
         self.btn_activate.grid(row=2, column=1)
         self.window.mainloop()
-
-
-obj = opening_panel()
-obj.open_panel()
