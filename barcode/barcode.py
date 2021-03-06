@@ -3,7 +3,7 @@ import pyzbar.pyzbar as pyzbar
 
 
 class barcode_read(object):
-    def read(self):
+    def reader(self):
         flag = 1
         cap = cv2.VideoCapture(0)
         font = cv2.FONT_HERSHEY_PLAIN
