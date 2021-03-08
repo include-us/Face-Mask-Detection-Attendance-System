@@ -5,7 +5,6 @@ from windows.admin_login import administrator
 
 class opening_panel(object):
     def administrator(self):
-        print("Administrator Opening")
         object1 = administrator()
         object1.admin_panel()
 
@@ -15,6 +14,7 @@ class opening_panel(object):
     def open_panel(self):
         self.window = tk.Tk()
         self.window.geometry("400x100")
+        self.window.title("Face Mask Detection And Attendance System")
         self.btn_admin = tk.Button(
             self.window,
             text="Administrator",

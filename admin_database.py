@@ -5,21 +5,26 @@ import datetime
 import tkinter as tk
 from tkinter import messagebox
 
+
 class database:
     def __init__(self):
-        self.con=db.connect('databases//users_info.db')
-        self.curr=self.con.cursor()
-    def add_user(self,id,name,year,dept,barcode):
+        self.con = db.connect('databases//users_info.db')
+        self.curr = self.con.cursor()
+
+    def add_user(self, id, name, year, dept, barcode):
         try:
-            command="INSERT INTO users VALUES('"+str(id)+"','"+name+"','"+str(year)+"','"+dept+"','"+barcode+"')"
+            command = "INSERT INTO users VALUES('"+str(
+                id)+"','"+name+"','"+str(year)+"','"+dept+"','"+barcode+"')"
             self.curr.execute(command)
             self.con.commit()
-            messagebox.showinfo("SUCCESS","USER ADDED")
+            messagebox.showinfo("SUCCESS", "USER ADDED")
         except:
-            messagebox.showerror("Error","Couldnt add the user")
-    def delete_user(self,id):
+            messagebox.showerror("Error", "Couldnt add the user")
+
+    def delete_user(self, id):
         try:
-            self.curr.execute("DELETE FROM users WHERE id=?",id)
+            self.curr.execute("DELETE FROM users WHERE id=?", id)
             self.con.commit()
+            messagebox.showinfo("SUCCESS", "USER DELETED")
         except:
-            messagebox.showerror("Error","Failed to delete user")
+            messagebox.showerror("Error", "Failed to delete user")

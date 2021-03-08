@@ -23,6 +23,7 @@ class administrator:
     def admin_panel(self):
         self.window = tk.Tk()
         self.window.geometry("400x100")
+        self.window.title("Administrator Panel")
         self.lbl_username = tk.Label(
             self.window,
             text="Enter Username: ",
@@ -46,13 +47,11 @@ class administrator:
             self.window,
             text="",
             width=20,
-
         )
         self.entry_password = tk.Entry(
             self.window,
             text="",
             width=20,
-
         )
         self.lbl_username.grid(row=1, column=0)
         self.lbl_password.grid(row=2, column=0)

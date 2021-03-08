@@ -20,6 +20,7 @@ class admin_panel(object):
         self.handle = database_methods()
         self.admin_window = tk.Tk()
         self.admin_window.geometry("400x200")
+        self.admin_window.title("Database")
         self.btn_add = tk.Button(
             self.admin_window,
             text="Add Student",
