@@ -12,9 +12,9 @@ class database:
         self.curr = self.con.cursor()
 
     def add_user(self, id, name, year, dept, barcode):
+        command = "INSERT INTO users VALUES('"+str(id)+"','" + \
+            name+"','"+str(year)+"','"+dept+"','"+barcode+"','0')"
         try:
-            command = "INSERT INTO users VALUES('"+str(
-                id)+"','"+name+"','"+str(year)+"','"+dept+"','"+barcode+"')"
             self.curr.execute(command)
             self.con.commit()
             messagebox.showinfo("SUCCESS", "USER ADDED")
@@ -23,8 +23,16 @@ class database:
 
     def delete_user(self, id):
         try:
-            self.curr.execute("DELETE FROM users WHERE id=?", id)
+            self.curr.execute("DELETE FROM users WHERE id=" + str(id))
             self.con.commit()
             messagebox.showinfo("SUCCESS", "USER DELETED")
         except:
             messagebox.showerror("Error", "Failed to delete user")
+
+    def view_users(self):
+        try:
+            self.curr.execute("SELECT * FROM users")
+            rows = self.curr.fetchall()
+            return rows
+        except:
+            messagebox.showerror("Error While Fetching Table")
