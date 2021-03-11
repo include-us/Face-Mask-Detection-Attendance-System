@@ -2,6 +2,7 @@ import sqlite3 as db
 import os
 from sqlite3 import Error
 import datetime
+import sqlite3
 import tkinter as tk
 from tkinter import messagebox
 
@@ -18,8 +19,8 @@ class database:
             self.curr.execute(command)
             self.con.commit()
             messagebox.showinfo("SUCCESS", "USER ADDED")
-        except:
-            messagebox.showerror("Error", "Couldnt add the user")
+        except sqlite3.Error as er:
+            messagebox.showerror("Error", "Couldnt add the user "+str(er))
 
     def delete_user(self, id):
         try:
