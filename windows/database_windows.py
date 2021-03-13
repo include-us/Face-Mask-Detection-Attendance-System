@@ -23,35 +23,49 @@ class database_methods(object):
 
 	def add_window(self):
 		self.window_add = tk.Tk()
-		self.window_add.geometry("400x200")
+		self.window_add.geometry("300x300")
 		self.window_add.title("Add A User")
 
 		self.window_add.mainloop()
 
 	def delete_window(self):
 		self.window_delete = tk.Tk()
-		self.window_delete.geometry("400x200")
+		self.window_delete.geometry("400x250")
+		self.window_delete.configure(background="turquoise") #background color
 		self.window_delete.title("Delete A User")
+		lab01 = tk.Label(self.window_delete,text="",bg="turquoise", fg="dark slate gray",font = ("times" , 15, 'bold'))
+		lab02 = tk.Label(self.window_delete,text="Delete a user",bg="turquoise", fg="dark slate gray",font = ("simplified arabic fixed" , 15, 'bold'))
+		lab03 = tk.Label(self.window_delete,text="",bg="turquoise", fg="dark slate gray",font = ("times" , 15, 'bold'))
+		lab04 = tk.Label(self.window_delete,text="",bg="turquoise", fg="dark slate gray",font = ("times" , 15, 'bold'))
 		self.lbl_id = tk.Label(
 			self.window_delete,
 			text="Enter ID to be Deleted: ",
-			height=1,
-			width=30,
+			font=("times",10,'bold'),
+			bg="turquoise", fg="Black",
+			height=2,
+			width=20,
 		)
 		self.entry_id = tk.Entry(
 			self.window_delete,
+			#bg="old lace",
 			width=30,
 		)
 		self.btn_delete = tk.Button(
 			self.window_delete,
 			text="DELETE",
-			height=1,
-			width=30,
+			font=("times",10,'bold'),
+			bg="old lace",
+			height=2,
+			width=25,
 			command=self.delete_command,
 		)
-		self.lbl_id.grid(row=1, column=0)
-		self.entry_id.grid(row=1, column=1)
-		self.btn_delete.grid(row=2, column=0, columnspan=2)
+		lab01.grid(row=1,column=1)
+		lab02.grid(row=2,columnspan=2,column=1)
+		lab03.grid(row=3,column=1)
+		self.lbl_id.grid(row=5, column=1)
+		self.entry_id.grid(row=5, column=2)
+		lab04.grid(row=6,column=1)
+		self.btn_delete.grid(row=7, column=2, columnspan=2)
 		self.window_delete.mainloop()
 
 	def view_window(self):
