@@ -62,11 +62,11 @@ model.save('mymodel.h5',model_saved)
 class mask(object):
     def __init__(self) -> None:
 
-        self.mymodel = load_model('mymodel.h5')
+        self.mymodel = load_model('facemask/mymodel.h5')
 
         self.cap = cv2.VideoCapture(0)
         self.face_cascade = cv2.CascadeClassifier(
-            'haarcascade_frontalface_default.xml')
+            'facemask/haarcascade_frontalface_default.xml')
 
     def detect_mask(self):
         while self.cap.isOpened():
@@ -100,6 +100,8 @@ class mask(object):
             print(count_test)
             if count_test == 2:
                 print(True)
+                self.cap.release()
+                cv2.destroyAllWindows()
                 return True
 
             if cv2.waitKey(1) == ord('q'):

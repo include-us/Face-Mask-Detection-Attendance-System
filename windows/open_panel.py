@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from windows.admin_login import administrator
-
+from facemask.facemask import mask
 
 class opening_panel(object):
 	def administrator(self):
@@ -10,6 +10,7 @@ class opening_panel(object):
 
 	def activate(self):
 		print("ACTIVATED")
+		mask().detect_mask()
 
 	def open_panel(self):
 		self.window = tk.Tk()

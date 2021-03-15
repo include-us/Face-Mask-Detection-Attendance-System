@@ -31,7 +31,7 @@ class database_methods(object):
 	def delete_window(self):
 		self.window_delete = tk.Tk()
 		self.window_delete.geometry("400x250")
-		self.window_delete.configure(background="turquoise") #background color
+		self.window_delete.configure(background="turquoise")
 		self.window_delete.title("Delete A User")
 		lab01 = tk.Label(self.window_delete,text="",bg="turquoise", fg="dark slate gray",font = ("times" , 15, 'bold'))
 		lab02 = tk.Label(self.window_delete,text="Delete a user",bg="turquoise", fg="dark slate gray",font = ("simplified arabic fixed" , 15, 'bold'))
@@ -47,7 +47,6 @@ class database_methods(object):
 		)
 		self.entry_id = tk.Entry(
 			self.window_delete,
-			#bg="old lace",
 			width=30,
 		)
 		self.btn_delete = tk.Button(
