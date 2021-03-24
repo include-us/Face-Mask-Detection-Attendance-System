@@ -14,7 +14,7 @@ class attendance(object):
 
     def mark(self):
         # self.code=read_code.reader()
-        self.code='1'
+        self.code='4'
         print("MARKING")
         df = pd.read_csv("attendance/data.csv")
         if datetime.datetime.now().strftime("%x") in df.columns:
@@ -23,10 +23,7 @@ class attendance(object):
             x = datetime.datetime.now()
             df[x.strftime("%x")] = "absent"
             df.to_csv("attendance/data.csv", index=False)
-
-        print(df.barcode)
         for codefind in df.barcode:
-            print(codefind)
             if str(codefind)==self.code:
                 df.loc[int(self.code)-1,datetime.datetime.now().strftime("%x")]="present"
                 df.to_csv("attendance/data.csv", index=False)
