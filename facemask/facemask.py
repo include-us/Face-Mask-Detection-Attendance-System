@@ -1,3 +1,4 @@
+from attendance.attendance import attendance
 from json import decoder
 import numpy as np
 import keras
@@ -60,20 +61,17 @@ model.save('mymodel.h5',model_saved)
 
 # IMPLEMENTING LIVE DETECTION OF FACE MASK
 class mask(object):
-    def __init__(self) -> None:
-
+    def detect_mask(self):
         self.mymodel = load_model('facemask/mymodel.h5')
-
         self.cap = cv2.VideoCapture(0)
         self.face_cascade = cv2.CascadeClassifier(
             'facemask/haarcascade_frontalface_default.xml')
-
-    def detect_mask(self):
         while self.cap.isOpened():
             _, img = self.cap.read()
             face = self.face_cascade.detectMultiScale(
                 img, scaleFactor=1.1, minNeighbors=4)
             count_test = 0
+            print(count_test)
             for(x, y, w, h) in face:
                 face_img = img[y:y+h, x:x+w]
                 cv2.imwrite('temp.jpg', face_img)
@@ -102,6 +100,7 @@ class mask(object):
                 print(True)
                 self.cap.release()
                 cv2.destroyAllWindows()
+                attendance().mark()
                 return True
 
             if cv2.waitKey(1) == ord('q'):

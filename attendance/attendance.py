@@ -1,8 +1,8 @@
 import csv
 import datetime
 from os import name
-# from ..barcode.barcode import barcode_read as read_code
-# from ..admin_database import database as db
+from barcode.barcode import barcode_read as read_code
+from admin_database import database as db
 import pandas as pd
 
 
@@ -13,8 +13,7 @@ class attendance(object):
         self.file = open("attendance/data.csv")
 
     def mark(self):
-        # self.code=read_code.reader()
-        self.code='4'
+        self.code=read_code().reader()
         print("MARKING")
         df = pd.read_csv("attendance/data.csv")
         if datetime.datetime.now().strftime("%x") in df.columns:
@@ -33,4 +32,3 @@ class attendance(object):
         print("SHOWN")
 
 
-attendance().mark()
