@@ -60,6 +60,8 @@ model.save('mymodel.h5',model_saved)
 '''
 
 # IMPLEMENTING LIVE DETECTION OF FACE MASK
+
+
 class mask(object):
     def detect_mask(self):
         while True:
