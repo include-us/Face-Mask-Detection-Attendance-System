@@ -2,8 +2,9 @@ import tkinter as tk
 from tkinter import messagebox
 from admin_database import database as db
 from tkinter import *
-
-
+import subprocess
+from subprocess import Popen
+import os
 class database_methods(object):
     def view_command(self):
         self.list.delete(0, END)
@@ -94,8 +95,4 @@ class database_methods(object):
         self.window_view.mainloop()
 
     def attend_window(self):
-        self.window_attend = tk.Tk()
-        self.window_attend.geometry("400x200")
-        self.window_attend.title("Check Attendance Of A User")
-
-        self.window_attend.mainloop()
+        os.system("cd attendance & data.csv")
