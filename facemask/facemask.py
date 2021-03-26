@@ -49,7 +49,7 @@ class mask(object):
 
                 cv2.imshow('img', img)
                 print(count_test)
-                if count_test == 5:
+                if count_test == 20:
                     print(True)
                     self.cap.release()
                     cv2.destroyAllWindows()

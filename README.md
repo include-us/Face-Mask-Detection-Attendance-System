@@ -8,6 +8,8 @@ It is a basic attendance system based on GUI and marks attendance only if the ma
 $ git clone https://github.com/include-us/Face-Mask-Detection-Attendance-System.git
 $ cd Face-Mask-Detection-Attendance-System
 $ pip install -r requirements.txt
+  IF YOU HAVE CUDA CORE BASED GPU
+$ conda install numba & conda install cudatoolkit
 $ python main.py
 ``` 
 
