@@ -70,11 +70,12 @@ class mask(object):
             self.cap = cv2.VideoCapture(0)
             self.face_cascade = cv2.CascadeClassifier(
                 'facemask/haarcascade_frontalface_default.xml')
+            count_test = 0
             while self.cap.isOpened():
                 _, img = self.cap.read()
                 face = self.face_cascade.detectMultiScale(
                     img, scaleFactor=1.1, minNeighbors=4)
-                count_test = 0
+                #count_test = 0
                 print(count_test)
                 for(x, y, w, h) in face:
                     face_img = img[y:y+h, x:x+w]
@@ -88,7 +89,6 @@ class mask(object):
                         cv2.rectangle(img, (x, y), (x+w, y+h), (0, 0, 255), 3)
                         cv2.putText(img, 'NO MASK', ((x+w)//2, y+h+20),
                                     cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 3)
-                        count_test = 0
                     else:
                         cv2.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 3)
                         cv2.putText(img, 'MASK', ((x+w)//2, y+h+20),
@@ -100,7 +100,7 @@ class mask(object):
 
                 cv2.imshow('img', img)
                 print(count_test)
-                if count_test == 2:
+                if count_test == 5:
                     print(True)
                     self.cap.release()
                     cv2.destroyAllWindows()
