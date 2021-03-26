@@ -105,6 +105,7 @@ class mask(object):
                     self.cap.release()
                     cv2.destroyAllWindows()
                     attendance().mark()
+                    count_test = 0
 
                 if cv2.waitKey(1) == ord('q'):
                     self.cap.release()
