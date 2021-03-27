@@ -19,7 +19,7 @@ class barcode_read(object):
                 cap.release()
                 cv2.destroyAllWindows()
                 return str(string)[2:-1]
-            cv2.imshow("Frame", frame)
+            cv2.imshow("Barcode Scanner", frame)
 
             key = cv2.waitKey(1)
             if key == 27:

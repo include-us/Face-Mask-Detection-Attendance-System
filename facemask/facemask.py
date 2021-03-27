@@ -36,18 +36,18 @@ class mask(object):
                     pred = self.mymodel.predict_classes(test_image)[0][0]
                     if pred == 1:
                         cv2.rectangle(img, (x, y), (x+w, y+h), (0, 0, 255), 3)
-                        cv2.putText(img, 'NO MASK', ((x+w)//2, y+h+20),
+                        cv2.putText(img, 'INVALID MASK', ((x+w)//2, y+h+20),
                                     cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 3)
                     else:
                         cv2.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 3)
-                        cv2.putText(img, 'MASK', ((x+w)//2, y+h+20),
+                        cv2.putText(img, 'VALID MASK', ((x+w)//2, y+h+20),
                                     cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 3)
                         count_test += 1
                     datet = str(datetime.datetime.now())
                     cv2.putText(img, datet, (400, 450),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
 
-                cv2.imshow('img', img)
+                cv2.imshow('FaceMask', img)
                 print(count_test)
                 if count_test == 20:
                     print(True)
