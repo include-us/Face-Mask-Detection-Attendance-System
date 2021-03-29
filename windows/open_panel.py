@@ -13,9 +13,14 @@ class opening_panel(object):
         print("ACTIVATED")
         mask().detect_mask()
 
+    def on_closing(self):
+        if messagebox.askokcancel("Quit", "Do you want to quit?"):
+            self.window.destroy()
+
     def open_panel(self):
         self.window = tk.Tk()
         self.window.configure(background="turquoise")  # background color
+        self.window.protocol("WM_DELETE_WINDOW", self.on_closing)
         self.window.geometry("700x533")
         self.window.title("Face Mask Detection And Attendance System")
         # labels added
