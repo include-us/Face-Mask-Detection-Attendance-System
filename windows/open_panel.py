@@ -40,7 +40,7 @@ class opening_panel(object):
         self.btn_activate = tk.Button(
             self.window,
             text="Activate System",
-            font=("simplified", 15, 'bold'),  # fonts
+            font=("simplified arabic fixed", 15, 'bold'),  # fonts
             width=60,
             height=4, bg="old lace",  # bg col
             command=self.activate
