@@ -25,7 +25,7 @@ class mask(object):
                 face = self.face_cascade.detectMultiScale(
                     img, scaleFactor=1.1, minNeighbors=4)
                 #count_test = 0
-                print(count_test)
+                # print(count_test)
                 for(x, y, w, h) in face:
                     face_img = img[y:y+h, x:x+w]
                     cv2.imwrite('temp.jpg', face_img)
@@ -48,8 +48,8 @@ class mask(object):
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
 
                 cv2.imshow('FaceMask', img)
-                print(count_test)
-                if count_test == 20:
+                # print(count_test)
+                if count_test == 2:
                     print(True)
                     self.cap.release()
                     cv2.destroyAllWindows()
