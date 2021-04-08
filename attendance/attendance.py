@@ -45,6 +45,7 @@ class attendance(object):
                 df.loc[len(df)-1, "name"] = rows[0][1]
                 df["barcode"] = df["barcode"].astype(int)
                 df.to_csv("attendance/data.csv", index=False)
+            print(len(df.columns))
 
     def show(self):
         print("SHOWN")
