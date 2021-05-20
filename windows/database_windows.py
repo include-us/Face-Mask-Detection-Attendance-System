@@ -53,7 +53,7 @@ class database_methods(object):
         lab04 = tk.Label(self.window_add, text="", bg="turquoise",
                          fg="dark slate gray", font=("times", 30, 'bold'))
         self.btn_add = tk.Button(self.window_add, text="Add Student", font=(
-            "times", 10, 'bold'), bg="old lace", height=3, width=42, command=self.window_add)
+            "times", 10, 'bold'), bg="old lace", height=3, width=42, command=self.window_adds)
 
         lab01.grid(row=0, column=0)
         lab02.grid(row=1, column=1, columnspan=7)
@@ -134,3 +134,8 @@ class database_methods(object):
 
     def attend_window(self):
         os.system("cd attendance & data.csv")
+
+    def window_adds(self):
+        print("func")
+        handle=db()
+        handle.add_user(self.entry_id1.get(),self.entry_id2.get(),self.entry_id3.get())

@@ -12,9 +12,14 @@ class database:
         self.con = db.connect('databases//users_info.db')
         self.curr = self.con.cursor()
 
-    def add_user(self, id, name, year, dept, barcode):
+    def add_user(self, name, year, dept):
+        sid=self.curr.execute("SELECT COUNT(id) FROM users")
+        sid=self.curr.fetchall()
+        print(sid)
+        id=int(sid[0][0])+1
         command = "INSERT INTO users VALUES('"+str(id)+"','" + \
-            name+"','"+str(year)+"','"+dept+"','"+barcode+"','0')"
+            name+"','"+str(year)+"','"+dept+"','','0')"
+        print("Called")
         try:
             self.curr.execute(command)
             self.con.commit()
