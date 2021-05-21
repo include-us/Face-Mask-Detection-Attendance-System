@@ -112,7 +112,7 @@ class database_methods(object):
 
     def view_window(self):
         self.window_view = tk.Tk()
-        self.window_view.geometry("500x400")
+        self.window_view.geometry("500x500")
         self.window_view.title("View All Users")
         self.list = tk.Listbox(self.window_view, height=25, width=65)
         self.scroller = tk.Scrollbar(self.window_view)
@@ -129,7 +129,7 @@ class database_methods(object):
 
         self.list.configure(yscrollcommand=self.scroller.set)
         self.scroller.configure(command=self.list.yview)
-
+        self.view_command()
         self.window_view.mainloop()
 
     def attend_window(self):
