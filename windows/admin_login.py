@@ -4,8 +4,8 @@ from windows.admin_panel import admin_panel
 # ---------------ADMIN CREDENTIALS----------------
 global admin_password
 global admin_username
-admin_username = "admin"
-admin_password = "admin"
+admin_username = "123456"
+admin_password = "123456"
 
 
 class administrator:
@@ -13,25 +13,25 @@ class administrator:
         entered_password = self.entry_password.get()
         entered_username = self.entry_username.get()
         if entered_password == admin_password and admin_username == entered_username:
-            messagebox.showinfo("SUCCESS", "LOGGING IN SUCCESSFUL")
+            messagebox.showinfo("SUCCESS", "LOG IN SUCCESSFUL")
             self.window.destroy()
             object2 = admin_panel()
             object2.admin()
         else:
-            messagebox.showerror("ERROR", "CHECK CREDENTIALS")
+            messagebox.showerror("ERROR", "PLEASE CHECK CREDENTIALS")
 
     def admin_panel(self):
         self.window = tk.Tk()
-        self.window.geometry("550x350")
+        self.window.geometry("550x400")
         self.window.title("Admin Login")
         self.window.configure(background="turquoise")
         lab10 = tk.Label(self.window, text="", bg="turquoise",
                          fg="dark slate gray", font=("times", 30, 'bold'))
-        lab11 = tk.Label(self.window, text="Sign in", bg="turquoise",
+        lab11 = tk.Label(self.window, text="Sign in", bg="blue",
                          fg="dark slate gray", font=("Simplified Arabic fixed", 20, 'bold'))
-        lab12 = tk.Label(self.window, text="", bg="turquoise", fg="dark slate gray", font=(
+        lab12 = tk.Label(self.window, text="", bg="blue", fg="dark slate gray", font=(
             "Simplified arabic fixed", 20, 'bold'))
-        lab13 = tk.Label(self.window, text="", bg="turquoise",
+        lab13 = tk.Label(self.window, text="", bg="blue",
                          fg="dark slate gray", font=("times", 20, 'bold'))
         self.lbl_username = tk.Label(
             self.window,
